@@ -3,6 +3,16 @@
 
 #define lpMap Map::getIns()
 
+// “¦‚°‚é‘¤‚Ìl”
+enum PLAYER
+{
+	PLAYER_1,
+	PLAYER_2,
+	PLAYER_3,
+	PLAYER_MAX
+};
+
+
 // ÀŞİ¼Ş®İ‚Ì•Ç‚©’Ê˜H‚©
 enum PASSAGE
 {
@@ -45,8 +55,12 @@ public:
 
 	// ŠeÌßÚ²Ô°‚ÌÃŞ¨½ÌßÚ²‚Ì•`‰æŠÖ”
 	void IndividualsDraw(void);
+	// ÌßÚ²Ô°‚Ìl”‚ÌŠi”[•Ï”
+	PLAYER player;
 private:
 	Map();
 	~Map();
+
+	
 };
 

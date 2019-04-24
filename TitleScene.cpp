@@ -1,4 +1,5 @@
 #include <DxLib.h>
+#include "Map.h"
 #include "Scene.h"
 #include "TitleScene.h"
 #include "GameScene.h"
@@ -16,11 +17,27 @@ TitleScene::~TitleScene()
 
 unique_Base TitleScene::Update(unique_Base own, const Controller & Controller)
 {
-	if (CheckHitKey(KEY_INPUT_RETURN))
+	// ÃÞÊÞ¯¸Þ—p-----------------------------------
+	if (CheckHitKey(KEY_INPUT_1))
+	{
+		lpMap.player = PLAYER_1;
+	}
+	if (CheckHitKey(KEY_INPUT_2))
+	{
+		lpMap.player = PLAYER_2;
+	}
+	if (CheckHitKey(KEY_INPUT_3))
+	{
+		lpMap.player = PLAYER_3;
+	}
+	// --------------------------------------
+	if (CheckHitKey(KEY_INPUT_RETURN) &&
+		(lpMap.player == PLAYER_1
+			|| lpMap.player == PLAYER_2
+			|| lpMap.player == PLAYER_3))
 	{
 		return std::make_unique<GameScene>();
 	}
-
 	ClsDrawScreen();
 	Draw();
 

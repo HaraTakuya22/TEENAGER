@@ -29,20 +29,43 @@ void Map::MapDraw(void)
 	//	}
 	//}
 
-	// ‰æ–Ê4•ªŠ„-----------------------------------
-	DrawLine(scr.x / 2, 0, scr.x / 2, scr.y, 0xffffff);
-	DrawLine(0, scr.y / 2, scr.x, scr.y / 2, 0xffffff);
-	// -------------------------------------------
+	//// ‰æ–Ê4•ªŠ„-----------------------------------
+	//DrawLine(scr.x / 2, 0, scr.x / 2, scr.y, 0xffffff);
+	//DrawLine(0, scr.y / 2, scr.x, scr.y / 2, 0xffffff);
+	//// -------------------------------------------
+
+	// ‰æ–Ê•ªŠ„(playerl”–ˆ‚É)
+	switch (player)
+	{
+	case PLAYER_1:
+
+		break;
+
+	case PLAYER_2:
+		DrawLine(scr.x / 2, 0, scr.x / 2, scr.y, 0xffffff);
+		break;
+
+	case PLAYER_3:
+		DrawLine(scr.x / 2, 0, scr.x / 2, scr.y, 0xffffff);
+		DrawLine(0, scr.y / 2, scr.x, scr.y / 2, 0xffffff);
+		break;
+
+	default:
+		break;
+	}
 
 	//DrawBox(0, 0, scr.x / 2, scr.y / 2, 0xffffff,true);
 }
 
 bool Map::Init(void)
 {
+
+	// Œã‚É”pŽ~—\’è(MapŠ®¬Œã)----------
 	Window1 = 0;
 	Window2 = 0;
 	Window3 = 0;
 	MapWindow = 0;
+	//----------------------------------
 
 	return true;
 }
@@ -51,15 +74,20 @@ void Map::IndividualsDraw(void)
 {
 	auto Scr = lpScene.GetScrSize();
 
+
+
 	// player1‚Ì‰æ–Ê•\Ž¦
 	if (Window1 >= 0)
 	{
-		Window1 = MakeScreen(Scr.x / 2, Scr.y / 2, true);
+		Window1 = MakeScreen(Scr.x, Scr.y, true);
 		SetDrawScreen(Window1);
-		DrawBox(0, 0, Scr.x / 2, Scr.y / 2, 0x0000ff, true);
+		DrawBox(0, 0, Scr.x, Scr.y, 0x0000ff, true);
 		SetDrawScreen(DX_SCREEN_BACK);
 	}
-	DrawGraph(0, 0, Window1, true);
+	if (lpMap.player == PLAYER_1)
+	{
+		DrawGraph(0, 0, Window1, true);
+	}
 
 	// player2‚Ì‰æ–Ê•\Ž¦
 	if (Window2 >= 0)
@@ -69,7 +97,11 @@ void Map::IndividualsDraw(void)
 		DrawBox(0, 0, Scr.x / 2, Scr.y / 2, 0xff0000, true);
 		SetDrawScreen(DX_SCREEN_BACK);
 	}
-	DrawGraph(Scr.x / 2, 0, Window2, true);
+	if (lpMap.player == PLAYER_2)
+	{
+		DrawGraph(0, 0, Window2, true);
+		DrawGraph(Scr.x / 2, 0, Window2, true);
+	}
 
 	// player3‚Ì‰æ–Ê•\Ž¦
 	if (Window3 >= 0)
@@ -79,7 +111,10 @@ void Map::IndividualsDraw(void)
 		DrawBox(0, 0, Scr.x / 2, Scr.y / 2, 0x00ff00, true);
 		SetDrawScreen(DX_SCREEN_BACK);
 	}
-	DrawGraph(0, Scr.y / 2, Window3, true);
+	if (lpMap.player == PLAYER_3)
+	{
+		DrawGraph(0, Scr.y / 2, Window3, true);
+	}
 
 	// Map‰æ–Ê•\Ž¦
 	if (MapWindow >= 0)
