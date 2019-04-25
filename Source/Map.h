@@ -70,6 +70,7 @@ private:
 	Map();
 	~Map();
 
-	
+	// Ï¯Ìß‚Ì¶ã‚ÌÎß¼Ş¼®İ
+	VECTOR2 mapPos;
 };
 

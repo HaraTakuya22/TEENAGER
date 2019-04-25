@@ -66,6 +66,8 @@ bool Map::Init(void)
 	Window2 = 0;
 	Window3 = 0;
 	MapWindow = 0;
+
+	mapPos = VECTOR2(0, 0);
 	//----------------------------------
 
 	return true;
@@ -105,6 +107,9 @@ void Map::IndividualsDraw(void)
 		DrawGraph(0, 0, Window1, true);
 
 		DrawBox((Scr.x - (Scr.x / 3)) / 2 - (PREYSIZE_X / 2), Scr.y / 2 - (PREYSIZE_Y / 2), (Scr.x - (Scr.x / 3)) / 2 + (PREYSIZE_X / 2), Scr.y / 2 + (PREYSIZE_Y / 2), 0xff0000, true);
+
+		// Map(‰¼)‚Ì•\Ž¦
+		DrawGraph(mapPos.x,mapPos.y,Planning)
 
 		// ¸ÞØ¯ÄÞ‚Ì•\Ž¦
 		for (int y = Scr.y; y >= 0; y -= GRIDSIZE)
