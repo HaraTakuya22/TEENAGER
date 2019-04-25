@@ -2,6 +2,7 @@
 #include "Map.h"
 #include "Scene.h"
 #include "Prey.h"
+#include "Image.h"
 
 
 
@@ -68,12 +69,14 @@ bool Map::Init(void)
 	MapWindow = 0;
 
 	mapPos = VECTOR2(0, 0);
+	PlanningImage = LoadGraph("image/PlanningMap.png");
+
 	//----------------------------------
 
 	return true;
 }
 
-void Map::IndividualsDraw(void)
+void Map::IndividualsDraw(WeakList weaklist)
 {
 	auto Scr = lpScene.GetScrSize();
 
@@ -106,21 +109,23 @@ void Map::IndividualsDraw(void)
 
 		DrawGraph(0, 0, Window1, true);
 
-		DrawBox((Scr.x - (Scr.x / 3)) / 2 - (PREYSIZE_X / 2), Scr.y / 2 - (PREYSIZE_Y / 2), (Scr.x - (Scr.x / 3)) / 2 + (PREYSIZE_X / 2), Scr.y / 2 + (PREYSIZE_Y / 2), 0xff0000, true);
-
 		// Map(仮)の表示
-		DrawGraph(mapPos.x,mapPos.y,Planning)
+		DrawGraph(mapPos.x, mapPos.y, PlanningImage, true);
+		// Prey(仮)の表示
+		//DrawBox(GRIDSIZE * 4,(GRIDSIZE * 4) - 40,(GRIDSIZE * 4) + PREYSIZE_X,(GRIDSIZE * 5), 0xff0000, true);
+
+		// Preyのｲﾝｽﾀﾝｽ
+		AddList()(weaklist, std::make_unique<Prey>(VECTOR2((GRIDSIZE * 4) + PREYSIZE_X, GRIDSIZE * 5)));
 
 		// ｸﾞﾘｯﾄﾞの表示
-		for (int y = Scr.y; y >= 0; y -= GRIDSIZE)
+		for (int y = 0; y <= Scr.y; y += GRIDSIZE)
 		{
 			DrawLine(0, y, Scr.x, y, 0xffffff);
-			for (int x = Scr.x; x >= 0; x -= GRIDSIZE)
+			for (int x = 0; x <= Scr.x; x += GRIDSIZE)
 			{
 				DrawLine(x, 0, x, Scr.y, 0xffffff);
 			}
 		}
-
 		// Mapを画面右下に配置
 		DrawGraph(Scr.x - (GRIDSIZE * 6),0, MapWindow, false);
 		DrawFormatString(Scr.x / 2 - 150, Scr.y - (Scr.y / 3) + 50, 0xffffff, "Map");

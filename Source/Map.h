@@ -1,5 +1,6 @@
 #pragma once
 #include "VECTOR2.h"
+#include "AddList.h"
 
 
 #define lpMap Map::getIns()
@@ -63,7 +64,7 @@ public:
 	int MapWindow;
 
 	// ŠeÌßÚ²Ô°‚ÌÃŞ¨½ÌßÚ²‚Ì•`‰æŠÖ”
-	void IndividualsDraw(void);
+	void IndividualsDraw(WeakList weaklist);
 	// ÌßÚ²Ô°‚Ìl”‚ÌŠi”[•Ï”
 	PLAYER player;
 private:
@@ -72,5 +73,8 @@ private:
 
 	// Ï¯Ìß‚Ì¶ã‚ÌÎß¼Ş¼®İ
 	VECTOR2 mapPos;
+
+	// Ï¯Ìß‚Ì‰¼‰æ‘œ
+	int PlanningImage;
 };
 
