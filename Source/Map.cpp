@@ -1,6 +1,7 @@
 #include <DxLib.h>
 #include "Map.h"
 #include "Scene.h"
+#include "Prey.h"
 
 
 
@@ -79,9 +80,9 @@ void Map::IndividualsDraw(void)
 	{
 		if (MapWindow >= 0)
 		{
-			MapWindow = MakeScreen(Scr.x / 3, Scr.y / 3 + 50, true);
+			MapWindow = MakeScreen(MAPWINDOW_SIZE_X, MAPWINDOW_SIZE_Y, true);
 			SetDrawScreen(MapWindow);
-			DrawBox(0, 0, Scr.x / 3, Scr.y / 3 + 50, 0x0000ff, false);
+			DrawBox(0, 0, MAPWINDOW_SIZE_X, MAPWINDOW_SIZE_Y, 0x0000ff, false);
 			SetDrawScreen(DX_SCREEN_BACK);
 		}
 	}
@@ -103,8 +104,20 @@ void Map::IndividualsDraw(void)
 
 		DrawGraph(0, 0, Window1, true);
 
+		DrawBox((Scr.x - (Scr.x / 3)) / 2 - (PREYSIZE_X / 2), Scr.y / 2 - (PREYSIZE_Y / 2), (Scr.x - (Scr.x / 3)) / 2 + (PREYSIZE_X / 2), Scr.y / 2 + (PREYSIZE_Y / 2), 0xff0000, true);
+
+		// ｸﾞﾘｯﾄﾞの表示
+		for (int y = Scr.y; y >= 0; y -= GRIDSIZE)
+		{
+			DrawLine(0, y, Scr.x, y, 0xffffff);
+			for (int x = Scr.x; x >= 0; x -= GRIDSIZE)
+			{
+				DrawLine(x, 0, x, Scr.y, 0xffffff);
+			}
+		}
+
 		// Mapを画面右下に配置
-		DrawGraph(Scr.x / 2 - 200, Scr.y - (Scr.y / 3) - 50, MapWindow, true);
+		DrawGraph(Scr.x - (GRIDSIZE * 6),0, MapWindow, false);
 		DrawFormatString(Scr.x / 2 - 150, Scr.y - (Scr.y / 3) + 50, 0xffffff, "Map");
 	}
 
@@ -128,7 +141,7 @@ void Map::IndividualsDraw(void)
 		DrawGraph(Scr.x / 2, 0, Window2, true);
 
 		// Mapの配置
-		DrawGraph(Scr.x / 2 - 200, Scr.y - (Scr.y / 3) - 50, MapWindow, false);
+		DrawGraph(Scr.x / 2 - (MAPWINDOW_SIZE_X / 2),0, MapWindow, false);
 		DrawFormatString(Scr.x / 2 - 150, Scr.y - (Scr.y / 3) + 50, 0xffffff, "Map");
 	}
 
@@ -154,7 +167,7 @@ void Map::IndividualsDraw(void)
 		DrawGraph(0, Scr.y / 2, Window3, true);
 
 		// Mapの配置
-		DrawGraph(Scr.x / 2 + 110, Scr.y / 2 + (((Scr.y / 3) / 2) / 2) - 15, MapWindow, false);
+		DrawGraph((Scr.x - (Scr.x / 4)) - (MAPWINDOW_SIZE_X / 2), (Scr.y - (Scr.y / 4)) - (MAPWINDOW_SIZE_Y / 2), MapWindow, false);
 		// ﾃﾞﾊﾞｯｸﾞ用---------------------------------------------------------------------------
 		DrawFormatString(Scr.x / 2 + 150, Scr.y / 2 + (((Scr.y / 3) / 2) / 2) + 50, 0xffffff, "Map");
 		//-------------------------------------------------------------------------------------

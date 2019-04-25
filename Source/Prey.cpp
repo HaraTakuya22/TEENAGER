@@ -22,13 +22,16 @@ Prey::~Prey()
 
 void Prey::Move(const Controller & controll, WeakList objlist)
 {
+
 }
 
 void Prey::Draw(void)
 {
+	
 }
 
 bool Prey::Init(void)
 {
+
 	return true;
 }

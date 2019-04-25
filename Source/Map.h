@@ -1,7 +1,16 @@
 #pragma once
 #include "VECTOR2.h"
 
+
 #define lpMap Map::getIns()
+
+// 1œΩÇÃª≤Ωﬁ
+#define GRIDSIZE 80
+
+
+// Map≥®›ƒﬁ≥ÇÃª≤Ωﬁ
+#define MAPWINDOW_SIZE_X GRIDSIZE * 6
+#define MAPWINDOW_SIZE_Y 214
 
 // ì¶Ç∞ÇÈë§ÇÃêlêî
 enum PLAYER
