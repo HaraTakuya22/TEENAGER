@@ -125,33 +125,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AddList.cpp" />
-    <ClCompile Include="BaseScene.cpp" />
-    <ClCompile Include="Controller.cpp" />
-    <ClCompile Include="GameScene.cpp" />
-    <ClCompile Include="Image.cpp" />
-    <ClCompile Include="It.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Map.cpp" />
-    <ClCompile Include="Obj.cpp" />
-    <ClCompile Include="Prey.cpp" />
-    <ClCompile Include="Scene.cpp" />
-    <ClCompile Include="TitleScene.cpp" />
-    <ClCompile Include="VECTOR2.cpp" />
+    <ClCompile Include="Source\AddList.cpp" />
+    <ClCompile Include="Source\BaseScene.cpp" />
+    <ClCompile Include="Source\Controller.cpp" />
+    <ClCompile Include="Source\GameScene.cpp" />
+    <ClCompile Include="Source\Image.cpp" />
+    <ClCompile Include="Source\It.cpp" />
+    <ClCompile Include="Source\Main.cpp" />
+    <ClCompile Include="Source\Map.cpp" />
+    <ClCompile Include="Source\Obj.cpp" />
+    <ClCompile Include="Source\Prey.cpp" />
+    <ClCompile Include="Source\Scene.cpp" />
+    <ClCompile Include="Source\TitleScene.cpp" />
+    <ClCompile Include="Source\VECTOR2.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AddList.h" />
-    <ClInclude Include="BaseScene.h" />
-    <ClInclude Include="Controller.h" />
-    <ClInclude Include="GameScene.h" />
-    <ClInclude Include="Image.h" />
-    <ClInclude Include="It.h" />
-    <ClInclude Include="Map.h" />
-    <ClInclude Include="Obj.h" />
-    <ClInclude Include="Prey.h" />
-    <ClInclude Include="Scene.h" />
-    <ClInclude Include="TitleScene.h" />
-    <ClInclude Include="VECTOR2.h" />
+    <ClInclude Include="Source\AddList.h" />
+    <ClInclude Include="Source\BaseScene.h" />
+    <ClInclude Include="Source\Controller.h" />
+    <ClInclude Include="Source\GameScene.h" />
+    <ClInclude Include="Source\Image.h" />
+    <ClInclude Include="Source\It.h" />
+    <ClInclude Include="Source\Map.h" />
+    <ClInclude Include="Source\Obj.h" />
+    <ClInclude Include="Source\Prey.h" />
+    <ClInclude Include="Source\Scene.h" />
+    <ClInclude Include="Source\TitleScene.h" />
+    <ClInclude Include="Source\VECTOR2.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Source\Log.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
