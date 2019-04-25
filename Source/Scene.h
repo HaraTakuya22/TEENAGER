@@ -8,7 +8,7 @@
 
 // ‰æ–Ê»²½Þ
 #define SCREENSIZE_X 1200
-#define SCREENSIZE_Y 675
+#define SCREENSIZE_Y 660
 
 #define lpScene	Scene::getInstance()
 

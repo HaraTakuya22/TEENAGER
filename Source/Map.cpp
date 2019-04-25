@@ -74,58 +74,91 @@ void Map::IndividualsDraw(void)
 {
 	auto Scr = lpScene.GetScrSize();
 
-
+	// Map画面表示
+	if (player == PLAYER_1 || player == PLAYER_2 || player == PLAYER_3)
+	{
+		if (MapWindow >= 0)
+		{
+			MapWindow = MakeScreen(Scr.x / 3, Scr.y / 3 + 50, true);
+			SetDrawScreen(MapWindow);
+			DrawBox(0, 0, Scr.x / 3, Scr.y / 3 + 50, 0x0000ff, false);
+			SetDrawScreen(DX_SCREEN_BACK);
+		}
+	}
 
 	// player1の画面表示
-	if (Window1 >= 0)
+	if (player == PLAYER_1)
 	{
-		Window1 = MakeScreen(Scr.x, Scr.y, true);
-		SetDrawScreen(Window1);
-		DrawBox(0, 0, Scr.x, Scr.y, 0x0000ff, true);
-		SetDrawScreen(DX_SCREEN_BACK);
-	}
-	if (lpMap.player == PLAYER_1)
-	{
+		if (Window1 >= 0)
+		{
+			Window1 = MakeScreen(Scr.x, Scr.y, true);
+			SetDrawScreen(Window1);
+			DrawBox(0, 0, Scr.x, Scr.y, 0xffffff, false);
+			SetDrawScreen(DX_SCREEN_BACK);
+		}
+
+		// ﾃﾞﾊﾞｯｸﾞ用-----------------------------------
+		DrawFormatString(50, 50, 0xffffff, "Player1");
+		//---------------------------------------------
+
 		DrawGraph(0, 0, Window1, true);
+
+		// Mapを画面右下に配置
+		DrawGraph(Scr.x / 2 - 200, Scr.y - (Scr.y / 3) - 50, MapWindow, true);
+		DrawFormatString(Scr.x / 2 - 150, Scr.y - (Scr.y / 3) + 50, 0xffffff, "Map");
 	}
 
 	// player2の画面表示
-	if (Window2 >= 0)
+	if (player == PLAYER_2)
 	{
-		Window2 = MakeScreen(Scr.x / 2, Scr.y / 2, true);
-		SetDrawScreen(Window2);
-		DrawBox(0, 0, Scr.x / 2, Scr.y / 2, 0xff0000, true);
-		SetDrawScreen(DX_SCREEN_BACK);
-	}
-	if (lpMap.player == PLAYER_2)
-	{
+		if (Window2 >= 0)
+		{
+			Window2 = MakeScreen(Scr.x / 2,Scr.y, true);
+			SetDrawScreen(Window2);
+			DrawBox(0, 0, Scr.x / 2, Scr.y, 0xffffff, false);
+			SetDrawScreen(DX_SCREEN_BACK);
+		}
+
+		// ﾃﾞﾊﾞｯｸﾞ用--------------------------------------------------
+		DrawFormatString(50, 50, 0xffffff, "Player1");
+		DrawFormatString(Scr.x / 2 + 50, 50, 0xffffff, "Player2");
+		//------------------------------------------------------------
+
 		DrawGraph(0, 0, Window2, true);
 		DrawGraph(Scr.x / 2, 0, Window2, true);
+
+		// Mapの配置
+		DrawGraph(Scr.x / 2 - 200, Scr.y - (Scr.y / 3) - 50, MapWindow, false);
+		DrawFormatString(Scr.x / 2 - 150, Scr.y - (Scr.y / 3) + 50, 0xffffff, "Map");
 	}
 
 	// player3の画面表示
-	if (Window3 >= 0)
+	if (player == PLAYER_3)
 	{
-		Window3 = MakeScreen(Scr.x / 2, Scr.y / 2, true);
-		SetDrawScreen(Window3);
-		DrawBox(0, 0, Scr.x / 2, Scr.y / 2, 0x00ff00, true);
-		SetDrawScreen(DX_SCREEN_BACK);
-	}
-	if (lpMap.player == PLAYER_3)
-	{
+		if (Window3 >= 0)
+		{
+			Window3 = MakeScreen(Scr.x / 2, Scr.y / 2, true);
+			SetDrawScreen(Window3);
+			DrawBox(0, 0, Scr.x / 2, Scr.y / 2, 0xffffff, false);
+			SetDrawScreen(DX_SCREEN_BACK);
+		}
+
+		// ﾃﾞﾊﾞｯｸﾞ用------------------------------------------
+		DrawFormatString(50, 50, 0xffffff, "Player1");
+		DrawFormatString(Scr.x / 2 + 50, 50, 0xffffff, "Player2");
+		DrawFormatString(50, Scr.y / 2 + 50, 0xffffff, "Player3");
+		//----------------------------------------------------
+
+		DrawGraph(0, 0, Window3, true);
+		DrawGraph(Scr.x / 2,0,Window3, true);
 		DrawGraph(0, Scr.y / 2, Window3, true);
-	}
 
-	// Map画面表示
-	if (MapWindow >= 0)
-	{
-		MapWindow = MakeScreen(Scr.x / 2, Scr.y / 2, true);
-		SetDrawScreen(MapWindow);
-		DrawBox(0, 0, Scr.x / 2, Scr.y / 2, 0xff00ff, true);
-		SetDrawScreen(DX_SCREEN_BACK);
+		// Mapの配置
+		DrawGraph(Scr.x / 2 + 110, Scr.y / 2 + (((Scr.y / 3) / 2) / 2) - 15, MapWindow, false);
+		// ﾃﾞﾊﾞｯｸﾞ用---------------------------------------------------------------------------
+		DrawFormatString(Scr.x / 2 + 150, Scr.y / 2 + (((Scr.y / 3) / 2) / 2) + 50, 0xffffff, "Map");
+		//-------------------------------------------------------------------------------------
 	}
-	DrawGraph(Scr.x / 2, Scr.y / 2, MapWindow, true);
-
 }
 
 Map::Map()
