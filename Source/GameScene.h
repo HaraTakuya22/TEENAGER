@@ -1,4 +1,5 @@
 #pragma once
+#include "Obj.h"
 #include "BaseScene.h"
 #include "AddList.h"
 class GameScene :

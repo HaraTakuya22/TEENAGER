@@ -36,7 +36,6 @@ void Obj::Draw(void)
 void Obj::Update(const Controller & controll, WeakList objlist)
 {
 	Move(controll, objlist);
-
 }
 
 bool Obj::Init(std::string filename, VECTOR2 divcnt, VECTOR2 divsize)
@@ -44,7 +43,7 @@ bool Obj::Init(std::string filename, VECTOR2 divcnt, VECTOR2 divsize)
 	this->DivCnt = divcnt;
 	this->DivSize = divsize;
 	ImageName = filename;
-	I_rapid.GetID(filename, divcnt, divsize);
+	lpImage.GetID(filename, divcnt, divsize);
 	return true;
 }
 
