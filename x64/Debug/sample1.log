@@ -1,5 +1,0 @@
-﻿  Map.cpp
-c:\users\1816028\desktop\sample(new)\source\map.cpp(107): warning C4244: '引数': 'double' から 'int' への変換です。データが失われる可能性があります。
-  Prey.cpp
-  コードを生成中...
-  sample1.vcxproj -> C:\Users\1816028\Desktop\sample(new)\x64\Debug\sample1.exe
