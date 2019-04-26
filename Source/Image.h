@@ -10,7 +10,7 @@
 
 //¼Ý¸ÞÙÄÝ---------------------------------------------
 #define ImageID(X) (Image::getInstance().GetID(X))
-#define I_rapid Image::getInstance()
+#define lpImage Image::getInstance()
 //----------------------------------------------------
 using VecInt = std::vector<int>;
 

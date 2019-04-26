@@ -1,3 +1,4 @@
+#include <DxLib.h>
 #include "Prey.h"
 
 
@@ -22,13 +23,16 @@ Prey::~Prey()
 
 void Prey::Move(const Controller & controll, WeakList objlist)
 {
+
 }
 
 void Prey::Draw(void)
 {
+	DrawBox(pos.x, pos.y, pos.x + GRIDSIZE, pos.y - (GRIDSIZE + 40), 0xff0000, true);
 }
 
 bool Prey::Init(void)
 {
+
 	return true;
 }
