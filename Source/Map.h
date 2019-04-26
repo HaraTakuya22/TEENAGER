@@ -1,5 +1,6 @@
 #pragma once
 #include "VECTOR2.h"
+#include "AddList.h"
 
 
 #define lpMap Map::getIns()
@@ -15,9 +16,9 @@
 // 逃げる側の人数
 enum PLAYER
 {
-	PLAYER_1,
-	PLAYER_2,
-	PLAYER_3,
+	PLAYER_1,		// 1人
+	PLAYER_2,		// 2人
+	PLAYER_3,		// 3人
 	PLAYER_MAX
 };
 
@@ -54,16 +55,12 @@ public:
 	// 各変数の初期化関数
 	bool Init(void);
 
-	// 各ｳｨﾝﾄﾞｳ(追跡される側)
-	int Window1;
-	int Window2;
-	int Window3;
-
-	// ﾏｯﾌﾟ専用のｳｨﾝﾄﾞｳ
-	int MapWindow;
+	// 各ﾌﾟﾚｲﾔｰのﾃﾞｨｽﾌﾟﾚｲ生成関数
+	void CreateIndividualsDisplay(void);
 
 	// 各ﾌﾟﾚｲﾔｰのﾃﾞｨｽﾌﾟﾚｲの描画関数
-	void IndividualsDraw(void);
+	void IndividualsDraw(WeakList weaklist);
+
 	// ﾌﾟﾚｲﾔｰの人数の格納変数
 	PLAYER player;
 private:
@@ -72,5 +69,17 @@ private:
 
 	// ﾏｯﾌﾟの左上のﾎﾟｼﾞｼｮﾝ
 	VECTOR2 mapPos;
+
+	// ﾏｯﾌﾟの仮画像
+	int PlanningImage;
+
+	// 各ｳｨﾝﾄﾞｳ(追跡される側)
+	int PreyWindow;
+
+	// ﾏｯﾌﾟ専用のｳｨﾝﾄﾞｳ
+	int MapWindow;
+
+	// ｽｸﾘｰﾝ全体のｻｲｽﾞ
+	VECTOR2 Scr;
 };
 
