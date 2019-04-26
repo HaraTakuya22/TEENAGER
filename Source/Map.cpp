@@ -68,7 +68,11 @@ bool Map::Init(void)
 	return true;
 }
 
+<<<<<<< HEAD
 void Map::CreateIndividualsDisplay(void)
+=======
+void Map::IndividualsDraw(WeakList weaklist)
+>>>>>>> 4c5d2e3684f3a771ccd677b84e0240731c82b3b4
 {
 	// 各ﾌﾟﾚｲ人数毎にﾃﾞｨｽﾌﾟﾚｲを生成
 	switch (player)
@@ -129,6 +133,7 @@ void Map::IndividualsDraw(WeakList weaklist)
 		DrawFormatString(50, 50, 0xffffff, "Player1");
 		//---------------------------------------------
 
+<<<<<<< HEAD
 		DrawGraph(0, 0, PreyWindow, true);
 
 		// Map(仮)の表示
@@ -139,6 +144,30 @@ void Map::IndividualsDraw(WeakList weaklist)
 
 		// Preyのｲﾝｽﾀﾝｽ
 		AddList()(weaklist, std::make_unique<Prey>(VECTOR2((GRIDSIZE * 4), GRIDSIZE * 5)));
+=======
+		DrawGraph(0, 0, Window1, true);
+
+		// Map(仮)の表示
+		DrawGraph(mapPos.x, mapPos.y, PlanningImage, true);
+		// Prey(仮)の表示
+		//DrawBox(GRIDSIZE * 4,(GRIDSIZE * 4) - 40,(GRIDSIZE * 4) + PREYSIZE_X,(GRIDSIZE * 5), 0xff0000, true);
+
+		// Preyのｲﾝｽﾀﾝｽ
+		AddList()(weaklist, std::make_unique<Prey>(VECTOR2((GRIDSIZE * 4) + PREYSIZE_X, GRIDSIZE * 5)));
+
+		// ｸﾞﾘｯﾄﾞの表示
+		for (int y = 0; y <= Scr.y; y += GRIDSIZE)
+		{
+			DrawLine(0, y, Scr.x, y, 0xffffff);
+			for (int x = 0; x <= Scr.x; x += GRIDSIZE)
+			{
+				DrawLine(x, 0, x, Scr.y, 0xffffff);
+			}
+		}
+		// Mapを画面右下に配置
+		DrawGraph(Scr.x - (GRIDSIZE * 6),0, MapWindow, false);
+		DrawFormatString(Scr.x / 2 - 150, Scr.y - (Scr.y / 3) + 50, 0xffffff, "Map");
+>>>>>>> 4c5d2e3684f3a771ccd677b84e0240731c82b3b4
 	}
 
 	// player2の画面表示

@@ -43,8 +43,12 @@ int GameScene::Init(void)
 
 void GameScene::Draw(void)
 {
+<<<<<<< HEAD
 	auto Scr = lpScene.GetScrSize();
 
+=======
+	
+>>>>>>> 4c5d2e3684f3a771ccd677b84e0240731c82b3b4
 	DrawFormatString(600, 0, 0xffff00, "Main");
 	lpMap.CreateIndividualsDisplay();
 	lpMap.IndividualsDraw(objlist);
@@ -54,5 +58,14 @@ void GameScene::Draw(void)
 		(*itr)->Draw();
 	}
 	lpMap.MapDraw();
+<<<<<<< HEAD
 
+=======
+	lpMap.IndividualsDraw(objlist);
+
+	for (auto itr = objlist->begin(); itr != objlist->end(); itr++)
+	{
+		(*itr)->Draw();
+	}
+>>>>>>> 4c5d2e3684f3a771ccd677b84e0240731c82b3b4
 }
