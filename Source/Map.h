@@ -60,7 +60,22 @@ public:
 
 	// 各ﾌﾟﾚｲﾔｰのﾃﾞｨｽﾌﾟﾚｲの描画関数
 	void IndividualsDraw(WeakList weaklist);
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 4c5d2e3684f3a771ccd677b84e0240731c82b3b4
+>>>>>>> ab3f1c354d0df138eec15e036820ffc64cd1fd21
+>>>>>>> ce496a41a0504782aa0a3e99fae297266b649b08
+>>>>>>> 29afbd9b8d458a03a6ac79a9d07b7731e784573b
 	// ﾌﾟﾚｲﾔｰの人数の格納変数
 	PLAYER player;
 private:
@@ -72,6 +87,16 @@ private:
 
 	// ﾏｯﾌﾟの仮画像
 	int PlanningImage;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> ab3f1c354d0df138eec15e036820ffc64cd1fd21
+>>>>>>> ce496a41a0504782aa0a3e99fae297266b649b08
+>>>>>>> 29afbd9b8d458a03a6ac79a9d07b7731e784573b
 
 	// 各ｳｨﾝﾄﾞｳ(追跡される側)
 	int PreyWindow;
@@ -81,5 +106,16 @@ private:
 
 	// ｽｸﾘｰﾝ全体のｻｲｽﾞ
 	VECTOR2 Scr;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 4c5d2e3684f3a771ccd677b84e0240731c82b3b4
+>>>>>>> ab3f1c354d0df138eec15e036820ffc64cd1fd21
+>>>>>>> ce496a41a0504782aa0a3e99fae297266b649b08
+>>>>>>> 29afbd9b8d458a03a6ac79a9d07b7731e784573b
 };
 
